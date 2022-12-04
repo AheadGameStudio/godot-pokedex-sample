@@ -1,0 +1,63 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://ba4ryimo6xqwt"]
+
+[ext_resource type="FontFile" uid="uid://dmfn74x4sgfru" path="res://MPLUS1-Bold.ttf" id="1_fo8iy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kltl"]
+bg_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqmw1"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 0.701961)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnngm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87xi1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pwetx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v6ak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tkoj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18ww4"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gl1mi"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk447"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6gbf"]
+border_width_left = 8
+border_color = Color(1, 0.254902, 0.2, 1)
+
+[resource]
+default_font = ExtResource("1_fo8iy")
+Footer/base_type = &"PanelContainer"
+Footer/styles/panel = SubResource("StyleBoxFlat_1kltl")
+Header/base_type = &"PanelContainer"
+Header/styles/panel = SubResource("StyleBoxFlat_xqmw1")
+KeyGuide/base_type = &"MarginContainer"
+KeyGuide/constants/margin_right = 20
+PokeButton/base_type = &"Button"
+PokeButton/styles/disabled = SubResource("StyleBoxEmpty_lnngm")
+PokeButton/styles/focus = SubResource("StyleBoxEmpty_87xi1")
+PokeButton/styles/hover = SubResource("StyleBoxEmpty_pwetx")
+PokeButton/styles/normal = SubResource("StyleBoxEmpty_7v6ak")
+PokeButton/styles/pressed = SubResource("StyleBoxEmpty_0tkoj")
+PokeCount/base_type = &"PanelContainer"
+PokeCount/styles/panel = SubResource("StyleBoxFlat_18ww4")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_gl1mi")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_rk447")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_q6gbf")

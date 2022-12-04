@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb1daymkxdlwn"]
+
+[ext_resource type="Script" path="res://PokedexButton.gd" id="1_p58jb"]
+[ext_resource type="Texture2D" uid="uid://dm5txfym1jjeb" path="res://Sprite-0001.png" id="1_uflly"]
+[ext_resource type="Texture2D" uid="uid://dor1rs0y4ck5v" path="res://icon.svg" id="2_0147e"]
+[ext_resource type="Material" uid="uid://dd30trb3iae3c" path="res://ShaderPokedexBackground.tres" id="2_jwe1v"]
+[ext_resource type="Texture2D" uid="uid://bx7qqxr3uf1kq" path="res://Textures/Icon_Button_Cursor.png" id="3_r46h6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynbli"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0njl"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.364706)
+shadow_size = 12
+shadow_offset = Vector2(0, -2)
+
+[node name="PokemonButton" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 566.0
+offset_bottom = 50.0
+theme_type_variation = &"PokeButton"
+script = ExtResource("1_p58jb")
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+material = ExtResource("2_jwe1v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ynbli")
+
+[node name="Background2" type="Panel" parent="Background"]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 15.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x0njl")
+
+[node name="Cursor" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 40)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -20.0
+offset_right = 21.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("3_r46h6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Control"]
+unique_name_in_owner = true
+position = Vector2(0, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("1_uflly")
+centered = false
+offset = Vector2(0, -32)
+
+[node name="NumberLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 64.0
+offset_top = 12.0
+offset_right = 215.0
+offset_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "No. 000"
+
+[node name="NameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+offset_left = 219.0
+offset_top = 12.0
+offset_right = 521.0
+offset_bottom = 38.0
+size_flags_horizontal = 3
+text = "Pokemon Name"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+offset_left = 525.0
+offset_right = 565.0
+offset_bottom = 50.0
+theme_override_constants/margin_right = 24
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(20, 0)
+offset_right = 16.0
+offset_bottom = 50.0
+texture = ExtResource("2_0147e")
+ignore_texture_size = true
+stretch_mode = 5

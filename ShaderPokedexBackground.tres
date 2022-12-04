@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dd30trb3iae3c"]
+
+[ext_resource type="Shader" path="res://Bg-Grad.gdshader" id="1_7jxjr"]
+
+[sub_resource type="Gradient" id="Gradient_53p44"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_avjsi"]
+gradient = SubResource("Gradient_53p44")
+
+[resource]
+shader = ExtResource("1_7jxjr")
+shader_parameter/amount = 0.3
+shader_parameter/degree = -0.1
+shader_parameter/gradient_texture = SubResource("GradientTexture1D_avjsi")
+shader_parameter/primary_color = Color(1, 0.235294, 0.141176, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://hg4hxvxax71e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y012b"]
+radius = 0.7
+height = 1.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1n4a"]
+albedo_color = Color(0.109804, 0.631373, 0.180392, 1)
+
+[node name="fushigidane" type="MeshInstance3D"]
+mesh = SubResource("CapsuleMesh_y012b")
+surface_material_override/0 = SubResource("StandardMaterial3D_o1n4a")

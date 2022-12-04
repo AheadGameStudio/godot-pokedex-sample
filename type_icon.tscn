@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://byi0hd2gx3bwd"]
+
+[ext_resource type="StyleBox" uid="uid://ialohc6j0wad" path="res://TypeStyles/Air.tres" id="1_6dygt"]
+[ext_resource type="Script" path="res://type_icon.gd" id="1_rbnv0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3hm07"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[node name="TypeIcon" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3hm07")
+script = ExtResource("1_rbnv0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1148.0
+offset_bottom = 644.0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("1_6dygt")
+text = "NORMAL"
+horizontal_alignment = 1
+vertical_alignment = 1

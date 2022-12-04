@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://boj1xomwux52c"]
+
+[ext_resource type="Script" path="res://footer.gd" id="1_ylxl5"]
+
+[node name="Footer" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 40)
+offset_top = 608.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_type_variation = &"Footer"
+script = ExtResource("1_ylxl5")
+
+[node name="GuideContainer" type="HBoxContainer" parent="."]
+layout_direction = 3
+offset_right = 1152.0
+offset_bottom = 40.0

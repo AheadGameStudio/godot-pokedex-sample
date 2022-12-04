@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qwf2hqykemp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kvxjc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjd00"]
+albedo_color = Color(1, 0.290196, 0.0745098, 1)
+
+[node name="rizard" type="MeshInstance3D"]
+mesh = SubResource("CapsuleMesh_kvxjc")
+surface_material_override/0 = SubResource("StandardMaterial3D_kjd00")

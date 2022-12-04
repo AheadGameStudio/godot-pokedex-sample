@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5vgldi0lyqgr"]
+
+[ext_resource type="Texture2D" uid="uid://dor1rs0y4ck5v" path="res://icon.svg" id="1_farui"]
+[ext_resource type="Script" path="res://KeyGuide.gd" id="1_os2yi"]
+
+[node name="KeyGuide" type="MarginContainer"]
+offset_left = 1050.0
+offset_right = 1152.0
+offset_bottom = 40.0
+theme_type_variation = &"KeyGuide"
+script = ExtResource("1_os2yi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 102.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+offset_right = 24.0
+offset_bottom = 40.0
+texture = ExtResource("1_farui")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+offset_left = 28.0
+offset_top = 7.0
+offset_right = 65.0
+offset_bottom = 33.0
+text = "Back"

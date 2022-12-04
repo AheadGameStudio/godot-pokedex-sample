@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv86x2h61wle2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e00vs"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmmp1"]
+albedo_color = Color(0.129412, 0.576471, 0.160784, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_22t1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpmk3"]
+albedo_color = Color(0.933333, 0.196078, 0.745098, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_x6v2g"]
+size = Vector2(1, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h5q"]
+cull_mode = 2
+albedo_color = Color(0.219608, 0.509804, 0.196078, 1)
+
+[node name="fushigibana" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_e00vs")
+surface_material_override/0 = SubResource("StandardMaterial3D_rmmp1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544071, -0.297106)
+mesh = SubResource("SphereMesh_22t1g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tpmk3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.922035, 0.33232, 0.198534, -0.25422, 0.133046, 0.957951, 0.291932, -0.933736, 0.207156, 0.535909, 0.492863, -0.0226188)
+mesh = SubResource("QuadMesh_x6v2g")
+surface_material_override/0 = SubResource("StandardMaterial3D_38h5q")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.741353, 0.641085, -0.19851, -0.285547, -0.0336353, 0.957774, 0.607338, 0.766733, 0.207995, -0.475829, 0.462761, 0.113896)
+mesh = SubResource("QuadMesh_x6v2g")
+surface_material_override/0 = SubResource("StandardMaterial3D_38h5q")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.937501, -0.341046, 0.0691367, -0.140756, -0.18995, 0.971652, -0.318245, -0.920656, -0.226082, 0.535909, 0.468939, -0.468674)
+mesh = SubResource("QuadMesh_x6v2g")
+surface_material_override/0 = SubResource("StandardMaterial3D_38h5q")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.959176, -0.252137, -0.128093, -0.144897, 0.0491696, 0.988224, -0.242869, 0.966442, -0.0836963, -0.475829, 0.486685, -0.330011)
+mesh = SubResource("QuadMesh_x6v2g")
+surface_material_override/0 = SubResource("StandardMaterial3D_38h5q")

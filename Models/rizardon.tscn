@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkjnmli4a8ash"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1x2k3"]
+radius = 0.7
+height = 2.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmxbe"]
+albedo_color = Color(1, 0.419608, 0, 1)
+
+[node name="rizardon" type="MeshInstance3D"]
+mesh = SubResource("CapsuleMesh_1x2k3")
+surface_material_override/0 = SubResource("StandardMaterial3D_lmxbe")

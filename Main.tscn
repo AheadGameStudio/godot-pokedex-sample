@@ -1,0 +1,509 @@
+[gd_scene load_steps=26 format=3 uid="uid://dr1y4jsuw03wg"]
+
+[ext_resource type="Theme" uid="uid://ba4ryimo6xqwt" path="res://ThemePokedex.tres" id="1_nn8kd"]
+[ext_resource type="Script" path="res://PokedexScreen.gd" id="2_khmy8"]
+[ext_resource type="PackedScene" uid="uid://dtxx0kvrviy7y" path="res://PokeCount.tscn" id="2_xwuca"]
+[ext_resource type="PackedScene" uid="uid://jgrhw4yn1yos" path="res://poke_model.tscn" id="4_fnsju"]
+[ext_resource type="PackedScene" uid="uid://boj1xomwux52c" path="res://footer.tscn" id="4_hglyb"]
+[ext_resource type="Script" path="res://PokedexDetail.gd" id="6_4qmpb"]
+[ext_resource type="Texture2D" uid="uid://n04ktjvqqw7y" path="res://pokemon_preview.tres" id="6_48sgv"]
+[ext_resource type="Texture2D" uid="uid://dm5txfym1jjeb" path="res://Sprite-0001.png" id="7_o47dr"]
+[ext_resource type="Texture2D" uid="uid://bwpjdpmb0vj2d" path="res://Textures/male_icon.png" id="8_7txup"]
+[ext_resource type="Material" uid="uid://dd30trb3iae3c" path="res://ShaderPokedexBackground.tres" id="8_si776"]
+[ext_resource type="Shader" path="res://Bg-Grad.gdshader" id="8_t37du"]
+[ext_resource type="Texture2D" uid="uid://b2wyits4xjeoo" path="res://Textures/male_icon-1.png" id="9_8t5v8"]
+[ext_resource type="Texture2D" uid="uid://chi74cwhe2t8x" path="res://Textures/Icon_got2.png" id="10_7m8w1"]
+
+[sub_resource type="Gradient" id="Gradient_53p44"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_avjsi"]
+gradient = SubResource("Gradient_53p44")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwda4"]
+shader = ExtResource("8_t37du")
+shader_parameter/amount = 0.0
+shader_parameter/degree = -0.45
+shader_parameter/gradient_texture = SubResource("GradientTexture1D_avjsi")
+shader_parameter/primary_color = Color(1, 1, 1, 1)
+shader_parameter/secondary_color = Color(1, 0.396078, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkmph"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddr5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyw0y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7qab"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.85, 0.85, 0.85, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekok6"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.85, 0.85, 0.85, 1)
+border_width_bottom = 2
+border_color = Color(0.79, 0.79, 0.79, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q5os"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.95, 0.95, 0.95, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3wp6"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 2
+border_color = Color(0.95, 0.95, 0.95, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y8nr"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwqwc"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Node"]
+
+[node name="Pokedex" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nn8kd")
+
+[node name="SubViewport" type="SubViewport" parent="Pokedex"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PokeModel" parent="Pokedex/SubViewport" instance=ExtResource("4_fnsju")]
+unique_name_in_owner = true
+
+[node name="Background" type="ColorRect" parent="Pokedex"]
+material = SubResource("ShaderMaterial_uwda4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PokedexScreen" type="Control" parent="Pokedex"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_khmy8")
+
+[node name="PokedexDetail" type="Control" parent="Pokedex/PokedexScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_4qmpb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Laguage" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/Laguage"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/Laguage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/Laguage/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 0.345098, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_wkmph")
+text = "ENG"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/Laguage/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Body" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DetailPokePreview" type="TextureRect" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_48sgv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Detail" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="PanelContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail"]
+material = ExtResource("8_si776")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddr5p")
+
+[node name="Header" type="PanelContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tyw0y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header"]
+layout_mode = 2
+
+[node name="Container" type="Control" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="PokemonIcon" type="Sprite2D" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer/Container"]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("7_o47dr")
+centered = false
+offset = Vector2(0, -4)
+
+[node name="NumberLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 20
+text = "No.999"
+
+[node name="NameLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Pokemon Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="TextureRect2" type="TextureRect" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("8_7txup")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("9_8t5v8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="IconGot" type="TextureRect" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_7m8w1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/Header/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer"]
+layout_mode = 2
+
+[node name="ClassLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f7qab")
+text = "Scratch Cat Pokemon"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekok6")
+text = "Type"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekok6")
+text = "Height"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekok6")
+text = "Weight"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekok6")
+text = "Number Battled"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+theme_override_constants/separation = 0
+
+[node name="TypeContainer" type="PanelContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5q5os")
+
+[node name="Container" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TypeContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HeightLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3wp6")
+text = "108'3\" +"
+
+[node name="WeightLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3wp6")
+text = "????? lbs."
+
+[node name="NumBattleLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_k3wp6")
+text = "2"
+
+[node name="FormLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_1y8nr")
+text = "Giantamax"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer/MarginContainer/Body/Detail/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 112)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_dwqwc")
+text = "The pattern that has appeared on its giant coin is thought to be the key to unlocking the secrets of the Dynamax phenomenon."
+autowrap_mode = 2
+
+[node name="Footer" parent="Pokedex/PokedexScreen/PokedexDetail/VBoxContainer" instance=ExtResource("4_hglyb")]
+layout_mode = 2
+
+[node name="PokemonList" type="VBoxContainer" parent="Pokedex/PokedexScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="MarginContainer" parent="Pokedex/PokedexScreen/PokemonList"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Header" type="PanelContainer" parent="Pokedex/PokedexScreen/PokemonList/Header"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_type_variation = &"Header"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokemonList/Header/Header"]
+layout_mode = 2
+
+[node name="Title" type="Control" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Pokedex"
+vertical_alignment = 1
+
+[node name="PokecountContaimer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="GotPokeCount" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer/PokecountContaimer" instance=ExtResource("2_xwuca")]
+unique_name_in_owner = true
+layout_mode = 2
+is_got = true
+
+[node name="FoundPokeCount2" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer/PokecountContaimer" instance=ExtResource("2_xwuca")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SortName" type="Control" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Pokedex/PokedexScreen/PokemonList/Header/Header/HBoxContainer/SortName"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "番号順"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Control" parent="Pokedex/PokedexScreen/PokemonList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pokedex/PokedexScreen/PokemonList/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ListPokePreview" type="TextureRect" parent="Pokedex/PokedexScreen/PokemonList/Body/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_48sgv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Pokedex/PokedexScreen/PokemonList/Body/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pokedex/PokedexScreen/PokemonList/Body/HBoxContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="PokemonList" type="VBoxContainer" parent="Pokedex/PokedexScreen/PokemonList/Body/HBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="NoItem" type="Label" parent="Pokedex/PokedexScreen/PokemonList/Body"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 150.0
+offset_top = 41.0
+offset_right = 390.0
+offset_bottom = 393.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.501961)
+theme_override_font_sizes/font_size = 240
+text = "？"
+
+[node name="Footer" parent="Pokedex/PokedexScreen/PokemonList" instance=ExtResource("4_hglyb")]
+layout_mode = 2

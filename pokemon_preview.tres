@@ -1,0 +1,4 @@
+[gd_resource type="ViewportTexture" format=3 uid="uid://n04ktjvqqw7y"]
+
+[resource]
+viewport_path = NodePath("Pokedex/SubViewport")

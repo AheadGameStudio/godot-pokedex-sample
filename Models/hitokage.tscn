@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://csq0l2atrg017"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gi0lf"]
+radius = 0.35
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju18w"]
+albedo_color = Color(1, 0.478431, 0.00392157, 1)
+
+[node name="hitokage" type="MeshInstance3D"]
+mesh = SubResource("CapsuleMesh_gi0lf")
+surface_material_override/0 = SubResource("StandardMaterial3D_ju18w")

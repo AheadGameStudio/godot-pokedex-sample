@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jgrhw4yn1yos"]
+
+[ext_resource type="Script" path="res://poke_model.gd" id="1_lngei"]
+
+[sub_resource type="Environment" id="Environment_nmbh4"]
+
+[node name="PokeModel" type="Node3D"]
+script = ExtResource("1_lngei")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.153736, 3.03842)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmbh4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.755808, -0.470031, -0.455878, 0.652259, 0.601635, 0.461078, 0.0575511, -0.645837, 0.761303, 0, 4.09922, 0)
